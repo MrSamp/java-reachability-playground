@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: "maven"
+    directory: "/sonar-dependency-check-plugin"
+    schedule:
+      interval: "daily"
+    labels:
+      - "chore"
+      - "dependencies"
+    ignore:
+      # Ignore sonar-plugin-api as we need the plugin compatible with older versions
+      - dependency-name: "org.sonarsource.sonarqube:sonar-plugin-api"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "daily"
+    labels:
+      - "chore"
+      - "dependencies"
+  - package-ecosystem: "npm"
+    directory: "/sonar-dependency-check-plugin"
+    schedule:
+      interval: "daily"
+    labels:
+      - "chore"
+      - "dependencies"
